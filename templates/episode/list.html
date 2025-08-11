@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Episodes - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+    <h1>All Episodes</h1>
+    
+    {% if paginator %}
+    <div class="episodes-list">
+        {% for episode in paginator.pages %}
+        <article class="episode-item">
+            <h2><a href="{{ episode.permalink }}">{{ episode.title }}</a></h2>
+            <div class="episode-meta">
+                <time datetime="{{ episode.date }}">{{ episode.date | date(format="%B %d, %Y") }}</time>
+                {% if episode.extra.duration %}
+                <span class="duration">{{ episode.extra.duration }}</span>
+                {% endif %}
+                {% if episode.extra.episode_number %}
+                <span class="episode-number">Episode {{ episode.extra.episode_number }}</span>
+                {% endif %}
+            </div>
+            
+            {% if episode.description %}
+            <p>{{ episode.description }}</p>
+            {% endif %}
+            
+            {% if episode.extra.audio_file %}
+            <audio controls preload="none">
+                <source src="{{ get_url(path=episode.extra.audio_file) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
+            
+            <p><a href="{{ episode.permalink }}">Listen to full episode →</a></p>
+        </article>
+        {% endfor %}
+    </div>
+    
+    
+    <nav class="pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">← Previous</a>
+        {% endif %}
+        
+        <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+        
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}">Next →</a>
+        {% endif %}
+    </nav>
+    {% elif section.pages %}
+    <div class="episodes-list">
+        {% for episode in section.pages %}
+        <article class="episode-item">
+            <h2><a href="{{ episode.permalink }}">{{ episode.title }}</a></h2>
+            <div class="episode-meta">
+                <time datetime="{{ episode.date }}">{{ episode.date | date(format="%B %d, %Y") }}</time>
+                {% if episode.extra.duration %}
+                <span class="duration">{{ episode.extra.duration }}</span>
+                {% endif %}
+                {% if episode.extra.episode_number %}
+                <span class="episode-number">Episode {{ episode.extra.episode_number }}</span>
+                {% endif %}
+            </div>
+            
+            {% if episode.description %}
+            <p>{{ episode.description }}</p>
+            {% endif %}
+            
+            {% if episode.extra.audio_file %}
+            <audio controls preload="none">
+                <source src="{{ get_url(path=episode.extra.audio_file) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
+            
+            <p><a href="{{ episode.permalink }}">Listen to full episode →</a></p>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No episodes available yet.</p>
+    {% endif %}
+</section>
+{% endblock content %}

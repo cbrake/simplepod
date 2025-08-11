@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=page.summary) }}{% endblock description %}
+
+{% block extra_head %}
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description | default(value=page.summary) }}">
+<meta property="og:type" content="music.song">
+{% if page.extra.audio_file %}
+<meta property="og:audio" content="{{ get_url(path=page.extra.audio_file) }}">
+{% endif %}
+{% endblock extra_head %}
+
+{% block content %}
+<article class="episode-full">
+    <header>
+        <h1>{{ page.title }}</h1>
+        <div class="episode-meta">
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+            {% if page.extra.duration %}
+            <span class="duration">Duration: {{ page.extra.duration }}</span>
+            {% endif %}
+            {% if page.extra.episode_number %}
+            <span class="episode-number">Episode {{ page.extra.episode_number }}</span>
+            {% endif %}
+            {% if page.extra.season %}
+            <span class="season">Season {{ page.extra.season }}</span>
+            {% endif %}
+        </div>
+    </header>
+    
+    {% if page.extra.audio_file %}
+    <div class="audio-player">
+        <audio controls preload="metadata" style="width: 100%;">
+            <source src="{{ get_url(path=page.extra.audio_file) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="download-links">
+            <a href="{{ get_url(path=page.extra.audio_file) }}" download>Download Episode</a>
+            {% if page.extra.transcript %}
+            | <a href="{{ get_url(path=page.extra.transcript) }}">Download Transcript</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if page.description %}
+    <div class="episode-description">
+        <h2>Episode Description</h2>
+        <p>{{ page.description }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="episode-content">
+        {{ page.content | safe }}
+    </div>
+    
+    {% if page.extra.show_notes %}
+    <div class="show-notes">
+        <h2>Show Notes</h2>
+        {{ page.extra.show_notes | markdown | safe }}
+    </div>
+    {% endif %}
+    
+    {% if page.taxonomies.tags %}
+    <div class="tags">
+        <h3>Tags:</h3>
+        <ul>
+            {% for tag in page.taxonomies.tags %}
+            <li><a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+    <nav class="episode-navigation">
+        {% if page.earlier %}
+        <a href="{{ page.earlier.permalink }}">← Previous: {{ page.earlier.title }}</a>
+        {% endif %}
+        
+        {% if page.later %}
+        <a href="{{ page.later.permalink }}">Next: {{ page.later.title }} →</a>
+        {% endif %}
+    </nav>
+</article>
+{% endblock content %}

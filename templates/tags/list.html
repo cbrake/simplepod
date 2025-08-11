@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Tags - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+    <h1>Tags</h1>
+    
+    {% if terms %}
+    <ul class="tags-list">
+        {% for term in terms %}
+        <li>
+            <a href="{{ term.permalink }}">{{ term.name }}</a> ({{ term.pages | length }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No tags found.</p>
+    {% endif %}
+</section>
+{% endblock content %}

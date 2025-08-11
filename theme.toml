@@ -1,0 +1,13 @@
+name = "SimplePod"
+description = "A simple podcast theme for Zola with iTunes support"
+license = "MIT"
+homepage = "https://github.com/yourusername/simplepod"
+min_version = "0.17.0"
+demo = ""
+
+[author]
+name = "Your Name"
+homepage = "https://yourwebsite.com"
+
+[extra]
+simplepod_version = "1.0.0"

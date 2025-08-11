@@ -1,0 +1,42 @@
+base_url = "https://example.com"
+title = "My Podcast"
+description = "A podcast about amazing topics and interesting conversations"
+compile_sass = true
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["episode/index.xml"]
+theme = "simplepod"
+
+[[taxonomies]]
+name = "tags"
+
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+[extra]
+language = "en-us"
+copyright = "© 2024 My Podcast"
+podcast_description = """
+Welcome to My Podcast! Join us weekly as we explore fascinating topics,
+interview amazing guests, and share insights that will inspire and educate.
+"""
+
+itunes_author = "John Doe"
+itunes_summary = "A podcast about amazing topics and interesting conversations with experts and thought leaders."
+itunes_owner_name = "John Doe" 
+itunes_owner_email = "podcast@example.com"
+itunes_image = "https://example.com/podcast-logo.svg"
+podcast_logo = "/podcast-logo.svg"
+itunes_category = "Technology"
+itunes_subcategory = "Tech News"
+itunes_explicit = "false"
+itunes_type = "episodic"
+
+itunes_url = "https://podcasts.apple.com/us/podcast/my-podcast"
+spotify_url = "https://open.spotify.com/show/your-spotify-id"
+
+nav_links = [
+    {name = "About", url = "/about"},
+    {name = "Contact", url = "/contact"},
+]

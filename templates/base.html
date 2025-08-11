@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(value="en") }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    
+    <link rel="stylesheet" href="{{ get_url(path="simple.min.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+    
+    {% if config.generate_feed %}
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} - Episodes" href="{{ get_url(path="episode/index.xml") }}">
+    {% endif %}
+    
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ get_url(path="/") }}" class="logo-link">
+                {% if config.extra.podcast_logo %}
+                <img src="{{ get_url(path=config.extra.podcast_logo) }}" alt="{{ config.title }}" class="podcast-logo">
+                {% endif %}
+                <strong>{{ config.title }}</strong>
+            </a>
+            <ul>
+                <li><a href="{{ get_url(path="episode/") }}">Episodes</a></li>
+                {% if config.extra.nav_links %}
+                    {% for link in config.extra.nav_links %}
+                    <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. All rights reserved.</p>
+        {% if config.extra.itunes_url %}
+        <p><a href="{{ config.extra.itunes_url }}">Subscribe on Apple Podcasts</a></p>
+        {% endif %}
+        {% if config.extra.spotify_url %}
+        <p><a href="{{ config.extra.spotify_url }}">Listen on Spotify</a></p>
+        {% endif %}
+    </footer>
+</body>
+</html>

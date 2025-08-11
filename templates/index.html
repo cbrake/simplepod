@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <div class="hero-section">
+        {% if config.extra.podcast_logo %}
+        <img src="{{ get_url(path=config.extra.podcast_logo) }}" alt="{{ config.title }}" class="hero-logo">
+        {% endif %}
+        <h1>Welcome to {{ config.title }}</h1>
+    </div>
+    
+    {% if config.extra.podcast_description %}
+    <div class="podcast-description">
+        {{ config.extra.podcast_description | safe }}
+    </div>
+    {% endif %}
+    
+    <h2>Latest Episodes</h2>
+    
+    {% set episodes = get_section(path="episode/_index.md") %}
+    {% if episodes.pages %}
+    <div class="episodes-list">
+        {% for episode in episodes.pages | slice(end=5) %}
+        <article class="episode-preview">
+            <h3><a href="{{ episode.permalink }}">{{ episode.title }}</a></h3>
+            <time datetime="{{ episode.date }}">{{ episode.date | date(format="%B %d, %Y") }}</time>
+            {% if episode.description %}
+            <p>{{ episode.description }}</p>
+            {% endif %}
+            {% if episode.extra.audio_file %}
+            <audio controls preload="none">
+                <source src="{{ get_url(path=episode.extra.audio_file) }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+    
+    <p><a href="{{ get_url(path="episode/") }}">View all episodes →</a></p>
+    {% else %}
+    <p>No episodes available yet.</p>
+    {% endif %}
+    
+    <h2>Subscribe</h2>
+    <p>
+        <a href="{{ get_url(path="episode/index.xml") }}">RSS Feed</a>
+        {% if config.extra.itunes_url %}
+        | <a href="{{ config.extra.itunes_url }}">Apple Podcasts</a>
+        {% endif %}
+        {% if config.extra.spotify_url %}
+        | <a href="{{ config.extra.spotify_url }}">Spotify</a>
+        {% endif %}
+    </p>
+</section>
+{% endblock content %}

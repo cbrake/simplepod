@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>{{ config.title }}</title>
+        <link>{{ config.base_url }}</link>
+        <atom:link href="{{ get_url(path="episode/index.xml") }}" rel="self" type="application/rss+xml"/>
+        <description>{{ config.description }}</description>
+        <language>{{ config.extra.language | default(value="en-us") }}</language>
+        <copyright>{% if config.extra.copyright %}{{ config.extra.copyright }}{% else %}© {{ now() | date(format="%Y") }} {{ config.title }}{% endif %}</copyright>
+        <lastBuildDate>{{ now() | date(format="%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
+        <generator>Zola</generator>
+        
+        {% if config.extra.itunes_author %}
+        <itunes:author>{{ config.extra.itunes_author }}</itunes:author>
+        {% endif %}
+        
+        {% if config.extra.itunes_summary %}
+        <itunes:summary>{{ config.extra.itunes_summary }}</itunes:summary>
+        {% endif %}
+        
+        {% if config.extra.itunes_owner_name and config.extra.itunes_owner_email %}
+        <itunes:owner>
+            <itunes:name>{{ config.extra.itunes_owner_name }}</itunes:name>
+            <itunes:email>{{ config.extra.itunes_owner_email }}</itunes:email>
+        </itunes:owner>
+        {% endif %}
+        
+        {% if config.extra.itunes_image %}
+        <itunes:image href="{{ config.extra.itunes_image }}"/>
+        <image>
+            <url>{{ config.extra.itunes_image }}</url>
+            <title>{{ config.title }}</title>
+            <link>{{ config.base_url }}</link>
+        </image>
+        {% endif %}
+        
+        {% if config.extra.itunes_category %}
+        <itunes:category text="{{ config.extra.itunes_category }}">
+            {% if config.extra.itunes_subcategory %}
+            <itunes:category text="{{ config.extra.itunes_subcategory }}"/>
+            {% endif %}
+        </itunes:category>
+        {% endif %}
+        
+        {% if config.extra.itunes_explicit %}
+        <itunes:explicit>{{ config.extra.itunes_explicit }}</itunes:explicit>
+        {% else %}
+        <itunes:explicit>false</itunes:explicit>
+        {% endif %}
+        
+        {% if config.extra.itunes_type %}
+        <itunes:type>{{ config.extra.itunes_type }}</itunes:type>
+        {% else %}
+        <itunes:type>episodic</itunes:type>
+        {% endif %}
+        
+        {% set episodes = get_section(path="episode/_index.md") %}
+        {% for episode in episodes.pages %}
+        <item>
+            <title>{{ episode.title }}</title>
+            <link>{{ episode.permalink }}</link>
+            <guid isPermaLink="true">{{ episode.permalink }}</guid>
+            <pubDate>{{ episode.date | date(format="%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
+            
+            {% if episode.description %}
+            <description><![CDATA[{{ episode.description }}]]></description>
+            {% endif %}
+            
+            {% if episode.content %}
+            <content:encoded><![CDATA[{{ episode.content | safe }}]]></content:encoded>
+            {% endif %}
+            
+            {% if episode.extra.audio_file %}
+            <enclosure url="{{ get_url(path=episode.extra.audio_file) }}" 
+                {% if episode.extra.audio_length %}length="{{ episode.extra.audio_length }}"{% else %}length="0"{% endif %}
+                {% if episode.extra.audio_type %}type="{{ episode.extra.audio_type }}"{% else %}type="audio/mpeg"{% endif %}/>
+            {% endif %}
+            
+            {% if episode.extra.duration %}
+            <itunes:duration>{{ episode.extra.duration }}</itunes:duration>
+            {% endif %}
+            
+            {% if episode.extra.episode_number %}
+            <itunes:episode>{{ episode.extra.episode_number }}</itunes:episode>
+            {% endif %}
+            
+            {% if episode.extra.season %}
+            <itunes:season>{{ episode.extra.season }}</itunes:season>
+            {% endif %}
+            
+            {% if episode.extra.episode_type %}
+            <itunes:episodeType>{{ episode.extra.episode_type }}</itunes:episodeType>
+            {% else %}
+            <itunes:episodeType>full</itunes:episodeType>
+            {% endif %}
+            
+            {% if episode.extra.itunes_author %}
+            <itunes:author>{{ episode.extra.itunes_author }}</itunes:author>
+            {% elif config.extra.itunes_author %}
+            <itunes:author>{{ config.extra.itunes_author }}</itunes:author>
+            {% endif %}
+            
+            {% if episode.extra.itunes_subtitle %}
+            <itunes:subtitle>{{ episode.extra.itunes_subtitle }}</itunes:subtitle>
+            {% endif %}
+            
+            {% if episode.extra.itunes_summary %}
+            <itunes:summary>{{ episode.extra.itunes_summary }}</itunes:summary>
+            {% elif episode.description %}
+            <itunes:summary>{{ episode.description }}</itunes:summary>
+            {% endif %}
+            
+            {% if episode.extra.itunes_image %}
+            <itunes:image href="{{ episode.extra.itunes_image }}"/>
+            {% elif config.extra.itunes_image %}
+            <itunes:image href="{{ config.extra.itunes_image }}"/>
+            {% endif %}
+            
+            {% if episode.extra.itunes_explicit %}
+            <itunes:explicit>{{ episode.extra.itunes_explicit }}</itunes:explicit>
+            {% elif config.extra.itunes_explicit %}
+            <itunes:explicit>{{ config.extra.itunes_explicit }}</itunes:explicit>
+            {% else %}
+            <itunes:explicit>false</itunes:explicit>
+            {% endif %}
+            
+            {% if episode.taxonomies.tags %}
+            <itunes:keywords>{{ episode.taxonomies.tags | join(sep=", ") }}</itunes:keywords>
+            {% endif %}
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
