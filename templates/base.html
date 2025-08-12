@@ -6,7 +6,7 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
     
-    <link rel="stylesheet" href="{{ get_url(path="simple.min.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="pico.min.css") }}">
     <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
     
     {% if config.generate_feed %}
@@ -16,31 +16,35 @@
     {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="{{ get_url(path="/") }}" class="logo-link">
-                {% if config.extra.podcast_logo %}
-                <img src="{{ get_url(path=config.extra.podcast_logo) }}" alt="{{ config.title }}" class="podcast-logo">
-                {% endif %}
-                <strong>{{ config.title }}</strong>
-            </a>
-            <ul>
-                <li><a href="{{ get_url(path="episode/") }}">Episodes</a></li>
-                {% if config.extra.nav_links %}
-                    {% for link in config.extra.nav_links %}
-                    <li><a href="{{ link.url }}">{{ link.name }}</a></li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
+    <nav class="container-fluid">
+        <ul>
+            <li>
+                <a href="{{ get_url(path="/") }}">
+                    {% if config.extra.podcast_logo %}
+                    <img src="{{ get_url(path=config.extra.podcast_logo) }}" alt="{{ config.title }}" class="podcast-logo">
+                    {% endif %}
+                    <strong>{{ config.title }}</strong>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="{{ get_url(path="episode/") }}">Episodes</a></li>
+            {% if config.extra.nav_links %}
+                {% for link in config.extra.nav_links %}
+                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </nav>
     
-    <main>
+    <main class="container">
         {% block content %}{% endblock content %}
     </main>
     
-    <footer>
+    <footer class="container">
+        {% if config.extra.show_copyright %}
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. All rights reserved.</p>
+        {% endif %}
         {% if config.extra.itunes_url %}
         <p><a href="{{ config.extra.itunes_url }}">Subscribe on Apple Podcasts</a></p>
         {% endif %}
