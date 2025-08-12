@@ -84,14 +84,12 @@ audio {
 	list-style: none;
 	padding: 0;
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 	flex-wrap: wrap;
 }
 
 .tags li {
-	background: var(--pico-secondary-background);
-	padding: 0.25rem 0.75rem;
-	border-radius: var(--pico-border-radius);
+	display: inline;
 }
 
 /* Episode navigation */
