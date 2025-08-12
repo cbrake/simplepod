@@ -32,20 +32,28 @@ show_notes = """
 """
 +++
 
-Welcome to the very first episode of My Podcast! We're thrilled to have you join us on this exciting journey.
+Welcome to the very first episode of My Podcast! We're thrilled to have you join
+us on this exciting journey.
 
-In this episode, we introduce ourselves and share our backgrounds. We discuss why we started this podcast and what we hope to achieve. We also give you a preview of upcoming episodes and the amazing guests we have lined up.
+In this episode, we introduce ourselves and share our backgrounds. We discuss
+why we started this podcast and what we hope to achieve. We also give you a
+preview of upcoming episodes and the amazing guests we have lined up.
 
 ## About the Hosts
 
-Your hosts, John and Jane, bring decades of combined experience in technology, media, and storytelling. We're passionate about sharing knowledge and having meaningful conversations.
+Your hosts, John and Jane, bring decades of combined experience in technology,
+media, and storytelling. We're passionate about sharing knowledge and having
+meaningful conversations.
 
 ## What to Expect
 
-Each week, we'll dive deep into fascinating topics, interview industry experts, and answer your questions. We believe in making complex topics accessible and enjoyable for everyone.
+Each week, we'll dive deep into fascinating topics, interview industry experts,
+and answer your questions. We believe in making complex topics accessible and
+enjoyable for everyone.
 
 ## Get Involved
 
-We want to hear from you! Send us your questions, topic suggestions, and feedback. You can reach us through our website or social media channels.
+We want to hear from you! Send us your questions, topic suggestions, and
+feedback. You can reach us through our website or social media channels.
 
 Thank you for listening, and we can't wait to share more episodes with you!

@@ -4,15 +4,19 @@ This is an example site demonstrating the SimplePod theme for Zola.
 
 ## Setup Instructions
 
-1. Make sure you have [Zola](https://www.getzola.org/documentation/getting-started/installation/) installed.
+1. Make sure you have
+   [Zola](https://www.getzola.org/documentation/getting-started/installation/)
+   installed.
 
 2. The SimplePod theme is in the parent directory. To use it, either:
+
    - Copy the entire SimplePod theme directory to `themes/simplepod`, OR
    - Update the config.toml to point to the parent directory theme
 
 3. Add your audio files to the `static/audio/` directory.
 
 4. Run the development server:
+
    ```bash
    zola serve
    ```
@@ -25,6 +29,7 @@ This is an example site demonstrating the SimplePod theme for Zola.
 ## Configuration
 
 Edit `config.toml` to customize:
+
 - Podcast title and description
 - iTunes/Apple Podcasts metadata
 - Spotify URL
@@ -33,7 +38,8 @@ Edit `config.toml` to customize:
 
 ## Creating Episodes
 
-Episodes are markdown files in the `content/episode/` directory. Each episode should include:
+Episodes are markdown files in the `content/episode/` directory. Each episode
+should include:
 
 - Title and date
 - Description
@@ -46,4 +52,5 @@ See the example episodes for the complete format.
 
 ## RSS Feed
 
-The podcast RSS feed compatible with Apple Podcasts is automatically generated at `/episode/index.xml`.
+The podcast RSS feed compatible with Apple Podcasts is automatically generated
+at `/episode/index.xml`.

@@ -40,15 +40,18 @@ show_notes = """
 """
 +++
 
-In episode 3, we tackle one of the biggest challenges of modern life: staying productive in an age of constant digital distractions.
+In episode 3, we tackle one of the biggest challenges of modern life: staying
+productive in an age of constant digital distractions.
 
 ## The Productivity Paradox
 
-Despite having more tools and technology than ever before, many of us feel less productive. We explore why this happens and what we can do about it.
+Despite having more tools and technology than ever before, many of us feel less
+productive. We explore why this happens and what we can do about it.
 
 ## Evidence-Based Strategies
 
-We share scientifically-backed methods for improving focus and productivity, including:
+We share scientifically-backed methods for improving focus and productivity,
+including:
 
 - **Time-blocking**: Scheduling specific blocks of time for different tasks
 - **The Two-Minute Rule**: If something takes less than two minutes, do it now
@@ -57,6 +60,9 @@ We share scientifically-backed methods for improving focus and productivity, inc
 
 ## Practical Implementation
 
-We don't just talk theory – we provide step-by-step guides for implementing these strategies in your daily life, whether you're a student, professional, or entrepreneur.
+We don't just talk theory – we provide step-by-step guides for implementing
+these strategies in your daily life, whether you're a student, professional, or
+entrepreneur.
 
-Join us for this practical episode that will help you reclaim your time and attention!
+Join us for this practical episode that will help you reclaim your time and
+attention!
