@@ -26,7 +26,7 @@ endblock title %} {% block content %}
 			{% endif %} {% if episode.extra.audio_file %}
 			<audio controls preload="none">
 				<source
-					src="{{ get_url(path=episode.extra.audio_file) }}"
+					src="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ episode.extra.audio_file }}{% else %}{{ get_url(path=episode.extra.audio_file) }}{% endif %}"
 					type="audio/mpeg"
 				/>
 				Your browser does not support the audio element.
@@ -74,7 +74,7 @@ endblock title %} {% block content %}
 			{% endif %} {% if episode.extra.audio_file %}
 			<audio controls preload="none">
 				<source
-					src="{{ get_url(path=episode.extra.audio_file) }}"
+					src="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ episode.extra.audio_file }}{% else %}{{ get_url(path=episode.extra.audio_file) }}{% endif %}"
 					type="audio/mpeg"
 				/>
 				Your browser does not support the audio element.

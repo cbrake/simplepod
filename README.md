@@ -22,7 +22,8 @@ Add the following configuration variables to your `config.toml` file in the
 - `podcast_description` - Long description of your podcast for the homepage
 - `podcast_logo` - Path to podcast logo image (e.g., "/podcast-logo.svg")
 - `media_prefix` - URL prefix for audio files. By default, files are assumed to
-  be in the `static/audio` directory if this is not set.
+  be in the `static/audio` directory if this is not set. The URL in the rss feed
+  is a complete URL a required by podcast engines.
 
 ### iTunes/Apple Podcasts Settings
 

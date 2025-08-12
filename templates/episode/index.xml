@@ -74,7 +74,7 @@
             {% endif %}
             
             {% if episode.extra.audio_file %}
-            <enclosure url="{{ get_url(path=episode.extra.audio_file) }}" 
+            <enclosure url="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ episode.extra.audio_file }}{% else %}{{ get_url(path=episode.extra.audio_file) }}{% endif %}" 
                 {% if episode.extra.audio_length %}length="{{ episode.extra.audio_length }}"{% else %}length="0"{% endif %}
                 {% if episode.extra.audio_type %}type="{{ episode.extra.audio_type }}"{% else %}type="audio/mpeg"{% endif %}/>
             {% endif %}

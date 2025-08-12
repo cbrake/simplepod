@@ -8,7 +8,7 @@
 <meta property="og:description" content="{{ page.description | default(value=page.summary) }}">
 <meta property="og:type" content="music.song">
 {% if page.extra.audio_file %}
-<meta property="og:audio" content="{{ get_url(path=page.extra.audio_file) }}">
+<meta property="og:audio" content="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ page.extra.audio_file }}{% else %}{{ get_url(path=page.extra.audio_file) }}{% endif %}">
 {% endif %}
 {% endblock extra_head %}
 
@@ -33,12 +33,12 @@
     {% if page.extra.audio_file %}
     <div class="audio-player">
         <audio controls preload="metadata" style="width: 100%;">
-            <source src="{{ get_url(path=page.extra.audio_file) }}" type="audio/mpeg">
+            <source src="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ page.extra.audio_file }}{% else %}{{ get_url(path=page.extra.audio_file) }}{% endif %}" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         
         <div class="download-links">
-            <a href="{{ get_url(path=page.extra.audio_file) }}" download>Download Episode</a>
+            <a href="{% if config.extra.media_prefix %}{{ config.extra.media_prefix }}{{ page.extra.audio_file }}{% else %}{{ get_url(path=page.extra.audio_file) }}{% endif %}" download>Download Episode</a>
             {% if page.extra.transcript %}
             | <a href="{{ get_url(path=page.extra.transcript) }}">Download Transcript</a>
             {% endif %}
