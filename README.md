@@ -11,6 +11,8 @@ features:
 - uses the pico css framework for styling -- no build step or npm packages
   required.
 
+![screenshot](simplepod-screenshot.png)
+
 ## Configuration
 
 Add the following configuration variables to your `config.toml` file in the
