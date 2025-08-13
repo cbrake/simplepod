@@ -22,6 +22,7 @@ Add the following configuration variables to your `config.toml` file in the
 
 - `language` - Language code for the podcast (e.g., "en-us")
 - `show_copyright` - Show copyright notice in footer (boolean, default: false)
+- `show_hero` - Show hero section on homepage with logo/title/description (boolean, default: true)
 - `podcast_description` - Long description of your podcast for the homepage
 - `podcast_logo` - Path to podcast logo image (e.g., "/podcast-logo.svg")
 - `media_prefix` - URL prefix for audio files. By default, files are assumed to

@@ -2,6 +2,7 @@
 
 {% block content %}
 <section>
+    {% if config.extra.show_hero is not defined or config.extra.show_hero %}
     <div class="hero-section">
         {% if config.extra.podcast_logo %}
         <img src="{{ get_url(path=config.extra.podcast_logo) }}" alt="{{ config.title }}" class="hero-logo">
@@ -13,6 +14,7 @@
     <div class="podcast-description">
         {{ config.extra.podcast_description | safe }}
     </div>
+    {% endif %}
     {% endif %}
     
     {% if section.pages %}
