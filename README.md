@@ -3,12 +3,13 @@
 SimplePod is a Zola site generator theme used for podcasts. It has the following
 features:
 
-- generates tags needed for Apple Itunes
-- has episodes
+- is simple -- focused on generating only a single podcast, not an all-in-one
+  site that includes a blog, etc.
 - generates an iTunes-compatible RSS feed at `/rss.xml`
-- when rendering each episode, there is a web audio player
+- includes a web audio player
 - the 'example/' directory contains an example site that uses this theme
-- uses the pico css framework for styling
+- uses the pico css framework for styling -- no build step or npm packages
+  required.
 
 ## Configuration
 
@@ -46,7 +47,8 @@ Add the following configuration variables to your `config.toml` file in the
 
 ### Episode Front Matter
 
-Episodes are stored as markdown files directly in the `content/` directory. Each episode should include the following in its front matter:
+Episodes are stored as markdown files directly in the `content/` directory. Each
+episode should include the following in its front matter:
 
 ```toml
 +++
