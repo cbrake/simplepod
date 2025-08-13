@@ -38,8 +38,8 @@ Edit `config.toml` to customize:
 
 ## Creating Episodes
 
-Episodes are markdown files in the `content/episode/` directory. Each episode
-should include:
+Episodes are markdown files in the `content/` directory. Each episode should
+include:
 
 - Title and date
 - Description
@@ -53,4 +53,4 @@ See the example episodes for the complete format.
 ## RSS Feed
 
 The podcast RSS feed compatible with Apple Podcasts is automatically generated
-at `/episode/index.xml`.
+at `/rss.xml`.

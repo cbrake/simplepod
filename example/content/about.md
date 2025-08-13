@@ -1,6 +1,7 @@
 +++
 title = "About"
-weight = 10
+date = 2024-01-01
+template = "page.html"
 +++
 
 # About My Podcast

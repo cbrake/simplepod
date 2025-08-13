@@ -1,10 +1,9 @@
 base_url = "https://example.com"
 title = "My Podcast"
 description = "A podcast about amazing topics and interesting conversations"
-compile_sass = true
 build_search_index = false
 generate_feeds = true
-feed_filenames = ["episode/index.xml"]
+feed_filenames = ["rss.xml"]
 theme = "simplepod"
 
 [[taxonomies]]

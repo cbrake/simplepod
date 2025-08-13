@@ -28,13 +28,11 @@ zola build
 
 ### Working with Episodes
 
-Episodes are markdown files in `content/episode/` with required frontmatter:
+Episodes are markdown files in the `content/` directory with required frontmatter:
 
 - `title`: Episode title
-- `date`: Publication date
-- `template`: Must be "episode/single.html"
-- `[extra]` section with: audio_file, duration, episode_number, season
-  (optional)
+- `date`: Publication date  
+- `[extra]` section with: audio_file, duration, episode_number, season (optional)
 
 ## Architecture & Key Files
 
@@ -45,7 +43,7 @@ The theme uses Zola's Tera templating engine with three core templates:
 - `templates/base.html`: Main layout wrapper defining header, nav, footer
 - `templates/episode/list.html`: Episode listing page with pagination
 - `templates/episode/single.html`: Individual episode pages with audio player
-- `templates/episode/index.xml`: iTunes RSS feed generation
+- `templates/rss.xml`: iTunes RSS feed generation (generates at `/rss.xml`)
 
 ### Configuration Flow
 
@@ -53,13 +51,12 @@ The theme uses Zola's Tera templating engine with three core templates:
    version requirements
 2. **Site Configuration** (`example/config.toml`): Contains all podcast metadata
    in `[extra]` section including iTunes-specific fields
-3. **Episode Content** (`content/episode/*.md`): Individual episodes with audio
-   references
+3. **Episode Content** (`content/*.md`): Individual episodes with audio references
 
 ### iTunes RSS Feed
 
-The RSS feed template (`templates/episode/index.xml`) generates a complete
-iTunes-compatible feed with:
+The RSS feed template (`templates/rss.xml`) generates a complete
+iTunes-compatible feed at `/rss.xml` with:
 
 - Podcast-level metadata from config.toml `[extra]` section
 - Episode enclosures pointing to audio files in `static/audio/`
@@ -69,8 +66,7 @@ iTunes-compatible feed with:
 ### Static Assets
 
 - Audio files: `static/audio/` (referenced in episode frontmatter)
-- CSS: `static/simple.min.css` (Pico CSS framework) + `static/style.css` (custom
-  styles)
+- CSS: `static/pico.min.css` (Pico CSS framework) + `static/style.css` (custom styles)
 - Images: Logo and other assets in `static/`
 
 ## Development Notes
@@ -87,7 +83,7 @@ iTunes-compatible feed with:
 When modifying templates or configuration:
 
 1. Run `zola serve` to preview changes locally
-2. Check generated RSS feed at `/episode/index.xml`
+2. Check generated RSS feed at `/rss.xml`
 3. Validate RSS feed with podcast validators before deployment
 
 ### Common Customizations

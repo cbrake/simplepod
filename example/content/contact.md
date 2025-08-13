@@ -1,6 +1,7 @@
 +++
 title = "Contact"
-weight = 20
+date = 2024-01-01
+template = "page.html"
 +++
 
 # Get in Touch

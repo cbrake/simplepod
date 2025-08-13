@@ -1,6 +1,6 @@
 +++
-title = "Home"
-sort_by = "weight"
+title = "My Podcast"
+sort_by = "date"
+template = "index.html"
+page_template = "episode/single.html"
 +++
-
-Welcome to our podcast!

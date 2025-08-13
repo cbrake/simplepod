@@ -5,9 +5,9 @@ features:
 
 - generates tags needed for Apple Itunes
 - has episodes
-- generates a `episode/index.xml` file compatible with Apple iTunes
-- when rending each espisode, there is an web audio player
-- the 'example/' directory contains an exmaple site that uses this theme
+- generates an iTunes-compatible RSS feed at `/rss.xml`
+- when rendering each episode, there is a web audio player
+- the 'example/' directory contains an example site that uses this theme
 - uses the pico css framework for styling
 
 ## Configuration
@@ -46,16 +46,15 @@ Add the following configuration variables to your `config.toml` file in the
 
 ### Episode Front Matter
 
-Each episode markdown file should include the following in its front matter:
+Episodes are stored as markdown files directly in the `content/` directory. Each episode should include the following in its front matter:
 
 ```toml
 +++
 title = "Episode Title"
 date = 2024-01-01
-template = "episode/single.html"
 
 [extra]
-audio_file = "episode-001.mp3"  # File should be in static/audio/
+audio_file = "audio/episode-001.mp3"  # File should be in static/audio/
 duration = "35:42"  # Format: MM:SS or HH:MM:SS
 episode_number = 1
 season = 1  # Optional
