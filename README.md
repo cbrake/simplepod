@@ -48,6 +48,10 @@ Add the following configuration variables to your `config.toml` file in the
 - `spotify_url` - Link to your podcast on Spotify
 - `nav_links` - Array of navigation links, each with `name` and `url` fields
 
+### Analytics
+
+- `fathom_site_id` - Fathom Analytics site ID (optional). If set, includes Fathom tracking script
+
 ### Episode Front Matter
 
 Episodes are stored as markdown files directly in the `content/` directory. Each
