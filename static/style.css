@@ -121,6 +121,17 @@ audio {
 	line-height: 1.6;
 }
 
+/* Blockquotes */
+blockquote,
+blockquote p {
+	font-style: italic !important;
+}
+
+article blockquote,
+article blockquote p {
+	font-style: italic !important;
+}
+
 /* Footer adjustments */
 footer {
 	margin-top: 4rem;
