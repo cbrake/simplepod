@@ -61,7 +61,7 @@
         {{ page.content | safe }}
     </div>
     
-    {% if page.extra.show_notes %}
+    {% if page.extra.show_notes and page.extra.show_notes | trim %}
     <div class="show-notes">
         <h2>Show Notes</h2>
         {{ page.extra.show_notes | markdown | safe }}
