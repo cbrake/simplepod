@@ -50,6 +50,7 @@
         {% if config.extra.show_copyright %}
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. All rights reserved.</p>
         {% endif %}
+        <a href="{{ get_url(path="rss.xml") }}">RSS Feed</a>
         {% if config.extra.itunes_url %}
         <p><a href="{{ config.extra.itunes_url }}">Subscribe on Apple Podcasts</a></p>
         {% endif %}

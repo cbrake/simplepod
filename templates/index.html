@@ -46,16 +46,6 @@
     {% else %}
     <p>No episodes available yet.</p>
     {% endif %}
-    
-    <h2>Subscribe</h2>
-    <p>
-        <a href="{{ get_url(path="rss.xml") }}">RSS Feed</a>
-        {% if config.extra.itunes_url %}
-        | <a href="{{ config.extra.itunes_url }}">Apple Podcasts</a>
-        {% endif %}
-        {% if config.extra.spotify_url %}
-        | <a href="{{ config.extra.spotify_url }}">Spotify</a>
-        {% endif %}
-    </p>
+   
 </section>
 {% endblock content %}
