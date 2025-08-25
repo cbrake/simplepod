@@ -42,6 +42,12 @@
         </ul>
     </nav>
     
+    {% if config.extra.call_to_action %}
+    <div class="container call-to-action">
+        {{ config.extra.call_to_action | safe }}
+    </div>
+    {% endif %}
+    
     <main class="container">
         {% block content %}{% endblock content %}
     </main>

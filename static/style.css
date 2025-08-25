@@ -9,6 +9,12 @@
 	margin-right: 0.5rem;
 }
 
+/* Call to action section */
+.call-to-action {
+	text-align: center;
+	margin: 1rem 0;
+}
+
 /* Hero section on homepage */
 .hero-section {
 	text-align: center;

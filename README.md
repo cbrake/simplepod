@@ -22,7 +22,8 @@ Add the following configuration variables to your `config.toml` file in the
 
 - `language` - Language code for the podcast (e.g., "en-us")
 - `show_copyright` - Show copyright notice in footer (boolean, default: false)
-- `show_hero` - Show hero section on homepage with logo/title/description (boolean, default: true)
+- `show_hero` - Show hero section on homepage with logo/title/description
+  (boolean, default: true)
 - `podcast_description` - Long description of your podcast for the homepage
 - `podcast_logo` - Path to podcast logo image (e.g., "/podcast-logo.svg")
 - `media_prefix` - URL prefix for audio files. By default, files are assumed to
@@ -47,10 +48,13 @@ Add the following configuration variables to your `config.toml` file in the
 
 - `spotify_url` - Link to your podcast on Spotify
 - `nav_links` - Array of navigation links, each with `name` and `url` fields
+- `call_to_action` - Text that can optionally be displayed at the top of each
+  page, typically one line.
 
 ### Analytics
 
-- `fathom_site_id` - Fathom Analytics site ID (optional). If set, includes Fathom tracking script
+- `fathom_site_id` - Fathom Analytics site ID (optional). If set, includes
+  Fathom tracking script
 
 ### Episode Front Matter
 
