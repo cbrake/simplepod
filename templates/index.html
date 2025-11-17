@@ -25,13 +25,13 @@
             <div class="episode-meta">
                 <time datetime="{{ episode.date }}">{{ episode.date | date(format="%B %d, %Y") }}</time>
                 {% if episode.extra.duration %}
-                <span class="duration">{{ episode.extra.duration }}</span>
+                <span class="duration">Duration: {{ episode.extra.duration }}</span>
                 {% endif %}
                 {% if episode.extra.episode_number %}
                 <span class="episode-number">Episode {{ episode.extra.episode_number }}</span>
                 {% endif %}
                 {% if episode.extra.author %}
-                <span class="author">Author: {{ episode.extra.author }}</span>
+                <span class="author">by {{ episode.extra.author }}</span>
                 {% endif %}
             </div>
             {% if episode.description %}
