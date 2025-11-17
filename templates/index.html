@@ -30,6 +30,9 @@
                 {% if episode.extra.episode_number %}
                 <span class="episode-number">Episode {{ episode.extra.episode_number }}</span>
                 {% endif %}
+                {% if episode.extra.author %}
+                <span class="author">Author: {{ episode.extra.author }}</span>
+                {% endif %}
             </div>
             {% if episode.description %}
             <p>{{ episode.description }}</p>
