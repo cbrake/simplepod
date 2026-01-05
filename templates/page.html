@@ -28,7 +28,7 @@
             {% if page.extra.episode_number %}
             <span class="episode-number">Episode {{ page.extra.episode_number }}</span>
             {% endif %}
-            {% if page.extra.season %}
+            {% if page.extra.season and config.extra.show_season | default(value=true) %}
             <span class="season">Season {{ page.extra.season }}</span>
             {% endif %}
             {% if page.extra.author %}
