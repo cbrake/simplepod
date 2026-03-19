@@ -127,6 +127,18 @@ audio {
 	line-height: 1.6;
 }
 
+/* Heading anchors */
+.zola-anchor {
+	color: inherit;
+	text-decoration: none;
+}
+
+.zola-anchor:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 0.2em;
+}
+
 /* Blockquotes */
 blockquote,
 blockquote p {
