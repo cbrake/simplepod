@@ -150,6 +150,87 @@ article blockquote p {
 	font-style: italic !important;
 }
 
+/* Search */
+#search-input {
+	width: 100%;
+	font-size: 1.1rem;
+}
+
+.search-syntax {
+	margin: 0.5rem 0 1.5rem;
+	font-size: 0.95rem;
+	color: var(--pico-muted-color);
+}
+
+.search-syntax > summary {
+	cursor: pointer;
+	font-weight: 500;
+	color: var(--pico-primary);
+	width: fit-content;
+}
+
+.search-syntax dl {
+	margin: 1rem 0 0;
+}
+
+.search-syntax dt {
+	font-weight: 600;
+	color: var(--pico-color);
+	margin-top: 0.75rem;
+}
+
+.search-syntax dd {
+	margin: 0.25rem 0 0 1rem;
+}
+
+.search-syntax code {
+	font-size: 0.9em;
+}
+
+.search-status-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin: 0.5rem 0 1rem;
+	min-height: 2rem;
+}
+
+.search-status {
+	color: var(--pico-muted-color);
+	font-size: 0.9rem;
+}
+
+.search-copy {
+	width: auto;
+	padding: 0.25rem 0.75rem;
+	font-size: 0.85rem;
+	margin: 0;
+}
+
+.search-result {
+	margin-bottom: 1.5rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.search-result h3 {
+	margin: 0 0 0.25rem;
+	font-size: 1.1rem;
+}
+
+.search-snippet {
+	margin: 0;
+	color: var(--pico-muted-color);
+	font-size: 0.95rem;
+}
+
+.search-snippet mark {
+	background: var(--pico-mark-background-color, #ffe28a);
+	color: inherit;
+	padding: 0 0.1em;
+}
+
 /* Footer adjustments */
 footer {
 	margin-top: 4rem;

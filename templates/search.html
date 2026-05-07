@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Search - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+    <h1>Search</h1>
+    <p>Search the full text of all episodes.</p>
+
+    <form id="search-form" role="search" onsubmit="return false;">
+        <input type="search" id="search-input" name="q" placeholder="Type to search..." autocomplete="off" autofocus>
+    </form>
+
+    <details class="search-syntax">
+        <summary>Search syntax &amp; examples</summary>
+        <dl>
+            <dt>Multiple words</dt>
+            <dd>Results must contain <em>all</em> the words you type.<br>
+                <code>samuel froehlich</code> — episodes containing both terms.</dd>
+
+            <dt>Word variants (stemming)</dt>
+            <dd>Common endings are folded together automatically.<br>
+                <code>martyr</code> matches <em>martyr</em>, <em>martyrs</em>, <em>martyrdom</em>.<br>
+                <code>baptism</code> matches <em>baptize</em>, <em>baptized</em>, <em>baptizing</em>.</dd>
+
+            <dt>Partial words (prefix)</dt>
+            <dd>A short word matches anything starting with it.<br>
+                <code>mart</code> matches <em>martyr</em>, <em>martin</em>, <em>martha</em>.<br>
+                Note: matching happens on word stems, so a query like <code>ante</code>
+                may also surface <em>anti…</em> words because they share a stem.
+                Highlighted words in the snippet show why each result matched.</dd>
+
+            <dt>Common words ignored</dt>
+            <dd>Stop words like <em>the</em>, <em>a</em>, <em>of</em>, <em>and</em>, <em>to</em>
+                are skipped. Search by content words instead.</dd>
+
+            <dt>Case</dt>
+            <dd>Search is case-insensitive. <code>God</code> and <code>god</code> match the same things.</dd>
+
+            <dt>Punctuation</dt>
+            <dd>Punctuation is treated as a word break. Hyphens and em-dashes split a phrase
+                into separate words.</dd>
+
+            <dt>Linkable searches</dt>
+            <dd>You can deep-link a query with <code>?q=</code>.<br>
+                <a href="?q=baptism">/pages/search?q=baptism</a></dd>
+        </dl>
+    </details>
+
+    <p class="search-status-row">
+        <span id="search-status" class="search-status"></span>
+        <button type="button" id="search-copy" class="search-copy" hidden>Copy link</button>
+    </p>
+    <div id="search-results" class="search-results"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/elasticlunr@0.9.5/elasticlunr.min.js"></script>
+<script src="{{ get_url(path="search_index.en.js") }}"></script>
+<script src="{{ get_url(path="search.js") }}"></script>
+{% endblock content %}
