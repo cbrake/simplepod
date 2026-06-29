@@ -31,8 +31,8 @@
             {% if page.extra.season and config.extra.show_season | default(value=true) %}
             <span class="season">Season {{ page.extra.season }}</span>
             {% endif %}
-            {% if page.extra.author %}
-            <span class="author">by {{ page.extra.author }}</span>
+            {% if page.taxonomies.authors %}
+            <span class="author">by {% for author in page.taxonomies.authors %}<a href="{{ get_taxonomy_url(kind="authors", name=author) }}">{{ author }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
             {% endif %}
         </div>
     </header>

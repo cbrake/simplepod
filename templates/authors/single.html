@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ term.name }} - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<section>
+    <h1>{{ term.name }}</h1>
+
+    {% if term.pages %}
+    <div class="episodes-list">
+        {% for page in term.pages %}
+        <article class="episode-item">
+            <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+            {% if page.description %}
+            <p>{{ page.description }}</p>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No episodes found for this author.</p>
+    {% endif %}
+
+    <p><a href="{{ get_url(path="authors/") }}">← Back to all authors</a></p>
+</section>
+{% endblock content %}

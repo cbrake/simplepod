@@ -30,8 +30,8 @@
                 {% if episode.extra.episode_number %}
                 <span class="episode-number">Episode {{ episode.extra.episode_number }}</span>
                 {% endif %}
-                {% if episode.extra.author %}
-                <span class="author">by {{ episode.extra.author }}</span>
+                {% if episode.taxonomies.authors %}
+                <span class="author">by {% for author in episode.taxonomies.authors %}<a href="{{ get_taxonomy_url(kind="authors", name=author) }}">{{ author }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</span>
                 {% endif %}
             </div>
             {% if episode.description %}
