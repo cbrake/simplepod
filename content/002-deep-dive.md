@@ -5,6 +5,7 @@ description = "We explore the fascinating world of artificial intelligence and m
 
 [taxonomies]
 tags = ["AI", "machine learning", "technology", "interview"]
+authors = ["John Doe", "Jane Smith"]
 
 [extra]
 audio_file = "audio/episode-002.mp3"

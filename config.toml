@@ -1,21 +1,29 @@
+# Demo site for the SimplePod theme.
+#
+# When you use SimplePod in your own site, copy this file, adjust the values,
+# and add `theme = "simplepod"`. This file omits that line because the theme
+# lives at the root of this repository, which lets `zola serve` run here
+# directly for theme development.
+
 base_url = "https://example.com"
 title = "My Podcast"
 description = "A podcast about amazing topics and interesting conversations"
-build_search_index = false
+build_search_index = true
 generate_feeds = true
 feed_filenames = ["rss.xml"]
-theme = "simplepod"
 
 [[taxonomies]]
 name = "tags"
 
+[[taxonomies]]
+name = "authors"
+
 [markdown]
-highlight_code = true
-highlight_theme = "base16-ocean-dark"
+insert_anchor_links = "heading"
 
 [extra]
 language = "en-us"
-show_copyright = true  # Set to false to hide copyright notice
+show_copyright = true # Set to false to hide copyright notice
 podcast_description = """
 Welcome to My Podcast! Join us weekly as we explore fascinating topics,
 interview amazing guests, and share insights that will inspire and educate.
@@ -23,7 +31,7 @@ interview amazing guests, and share insights that will inspire and educate.
 
 itunes_author = "John Doe"
 itunes_summary = "A podcast about amazing topics and interesting conversations with experts and thought leaders."
-itunes_owner_name = "John Doe" 
+itunes_owner_name = "John Doe"
 itunes_owner_email = "podcast@example.com"
 itunes_image = "https://example.com/podcast-logo.svg"
 podcast_logo = "/podcast-logo.svg"
@@ -36,6 +44,7 @@ itunes_url = "https://podcasts.apple.com/us/podcast/my-podcast"
 spotify_url = "https://open.spotify.com/show/your-spotify-id"
 
 nav_links = [
-    {name = "About", url = "/about"},
-    {name = "Contact", url = "/contact"},
+    { name = "Search", url = "/pages/search" },
+    { name = "About", url = "/pages/about" },
+    { name = "Contact", url = "/pages/contact" },
 ]

@@ -5,6 +5,7 @@ description = "In our inaugural episode, we introduce the podcast, discuss what'
 
 [taxonomies]
 tags = ["introduction", "welcome", "podcast"]
+authors = ["John Doe"]
 
 [extra]
 audio_file = "audio/episode-001.mp3"

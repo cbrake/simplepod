@@ -1,10 +1,7 @@
 +++
 title = "About"
-date = 2024-01-01
-template = "page.html"
+weight = 10
 +++
-
-# About My Podcast
 
 Welcome to My Podcast! We're dedicated to bringing you insightful conversations
 and deep dives into fascinating topics that matter.

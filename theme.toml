@@ -1,13 +1,16 @@
 name = "SimplePod"
-description = "A simple podcast theme for Zola with iTunes support"
+description = "A simple podcast theme with an iTunes-compatible RSS feed, a built-in audio player, and client-side search. No build step required."
+tags = ["podcast", "rss", "audio", "search", "responsive", "minimal"]
 license = "MIT"
-homepage = "https://github.com/yourusername/simplepod"
-min_version = "0.17.0"
+homepage = "https://github.com/cbrake/simplepod"
+# The minimum version of Zola required
+min_version = "0.19.0"
+# An optional live demo URL
 demo = ""
 
 [author]
-name = "Your Name"
-homepage = "https://yourwebsite.com"
+name = "Cliff Brake"
+homepage = "https://github.com/cbrake"
 
 [extra]
 simplepod_version = "1.0.0"

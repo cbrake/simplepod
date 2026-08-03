@@ -28,30 +28,42 @@ zola build
 
 ### Working with Episodes
 
-Episodes are markdown files in the `content/` directory with required frontmatter:
+Episodes are markdown files in the `content/` directory with required
+frontmatter:
 
 - `title`: Episode title
-- `date`: Publication date  
-- `[extra]` section with: audio_file, duration, episode_number, season (optional)
+- `date`: Publication date
+- `[extra]` section with: audio_file, duration, episode_number, season
+  (optional)
 
 ## Architecture & Key Files
 
 ### Template System
 
-The theme uses Zola's Tera templating engine with three core templates:
+The theme uses Zola's Tera templating engine:
 
 - `templates/base.html`: Main layout wrapper defining header, nav, footer
-- `templates/episode/list.html`: Episode listing page with pagination
-- `templates/episode/single.html`: Individual episode pages with audio player
+- `templates/index.html`: Home page and episode list
+- `templates/page.html`: Individual episode pages with audio player
+- `templates/pages/page.html`: Static pages under `content/pages/`
+- `templates/section.html`: Generic section index
+- `templates/search.html`: Client-side search page
+- `templates/tags/`, `templates/authors/`: Taxonomy list and detail pages
 - `templates/rss.xml`: iTunes RSS feed generation (generates at `/rss.xml`)
+
+Episodes live at the top level of `content/`, so Zola renders them with
+`page.html`. Static pages live in `content/pages/`, whose `_index.md` sets
+`page_template = "pages/page.html"`.
 
 ### Configuration Flow
 
 1. **Theme Configuration** (`theme.toml`): Defines theme metadata and Zola
    version requirements
-2. **Site Configuration** (`example/config.toml`): Contains all podcast metadata
-   in `[extra]` section including iTunes-specific fields
-3. **Episode Content** (`content/*.md`): Individual episodes with audio references
+2. **Site Configuration** (`config.toml`): Contains all podcast metadata in the
+   `[extra]` section including iTunes-specific fields. The repository root is
+   itself a demo Zola site, so `zola serve` works here directly.
+3. **Episode Content** (`content/*.md`): Individual episodes with audio
+   references
 
 ### iTunes RSS Feed
 
@@ -66,7 +78,8 @@ iTunes-compatible feed at `/rss.xml` with:
 ### Static Assets
 
 - Audio files: `static/audio/` (referenced in episode frontmatter)
-- CSS: `static/pico.min.css` (Pico CSS framework) + `static/style.css` (custom styles)
+- CSS: `static/pico.min.css` (Pico CSS framework) + `static/style.css` (custom
+  styles)
 - Images: Logo and other assets in `static/`
 
 ## Development Notes
@@ -90,5 +103,5 @@ When modifying templates or configuration:
 
 - Navigation links: Edit `[extra.nav_links]` in config.toml
 - Podcast metadata: Modify `[extra]` section in config.toml
-- Episode template: Customize `templates/episode/single.html`
+- Episode template: Customize `templates/page.html`
 - Homepage: Modify `templates/index.html` or create custom content pages

@@ -54,7 +54,8 @@
     <div id="search-results" class="search-results"></div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/elasticlunr@0.9.5/elasticlunr.min.js"></script>
-<script src="{{ get_url(path="search_index.en.js") }}"></script>
+<script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+{% set search_lang = lang | default(value=config.default_language) %}
+<script src="{{ get_url(path="search_index." ~ search_lang ~ ".js") }}"></script>
 <script src="{{ get_url(path="search.js") }}"></script>
 {% endblock content %}

@@ -1,10 +1,7 @@
 +++
 title = "Contact"
-date = 2024-01-01
-template = "page.html"
+weight = 10
 +++
-
-# Get in Touch
 
 We'd love to hear from you! Whether you have a question, feedback, or a topic
 suggestion, don't hesitate to reach out.
@@ -22,15 +19,15 @@ For technical issues or website problems: **support@example.com**
 
 Follow us and send us a message:
 
-- Twitter: [@mypodcast](https://twitter.com/example)
-- Instagram: [@mypodcast](https://instagram.com/example)
-- Facebook: [My Podcast](https://facebook.com/example)
-- LinkedIn: [My Podcast](https://linkedin.com/company/example)
+- Twitter: @mypodcast
+- Instagram: @mypodcast
+- Facebook: My Podcast
+- LinkedIn: My Podcast
 
 ### Discord Community
 
-Join our Discord server to chat with other listeners and the hosts:
-[Join our Discord](https://discord.gg/example)
+Join our Discord server to chat with other listeners and the hosts: Join our
+Discord community
 
 ## Be a Guest
 

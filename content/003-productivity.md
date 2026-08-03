@@ -5,6 +5,7 @@ description = "Learn practical tips and strategies for staying productive and fo
 
 [taxonomies]
 tags = ["productivity", "time management", "digital wellness", "self-improvement"]
+authors = ["Jane Smith"]
 
 [extra]
 audio_file = "audio/episode-003.mp3"
