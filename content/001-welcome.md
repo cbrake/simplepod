@@ -9,9 +9,9 @@ authors = ["John Doe"]
 
 [extra]
 audio_file = "audio/episode-001.mp3"
-audio_length = "12345678"
+audio_length = "48501"
 audio_type = "audio/mpeg"
-duration = "25:30"
+duration = "00:12"
 episode_number = 1
 season = 1
 episode_type = "full"

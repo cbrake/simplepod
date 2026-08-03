@@ -6,7 +6,7 @@ homepage = "https://github.com/cbrake/simplepod"
 # The minimum version of Zola required
 min_version = "0.19.0"
 # An optional live demo URL
-demo = ""
+demo = "https://cbrake.github.io/simplepod/"
 
 [author]
 name = "Cliff Brake"

@@ -13,6 +13,8 @@ SimplePod is a Zola theme for podcasts. It has the following features:
 
 ![screenshot](screenshot.png)
 
+[Live demo](https://cbrake.github.io/simplepod/)
+
 ## Requirements
 
 Zola 0.19.0 or later.
@@ -214,6 +216,9 @@ declares those taxonomies.
 | `rss.xml`             | The iTunes-compatible feed at `/rss.xml` |
 
 ## Development
+
+The audio files under `static/audio/` are short generated tones, present only so
+the demo site has a working player. Replace them with your own episodes.
 
 Run `zola serve` from the root of this repository to preview the theme against
 the demo content. `envsetup.sh` defines `sp_format`, which runs Prettier over

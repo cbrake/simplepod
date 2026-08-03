@@ -9,9 +9,9 @@ authors = ["John Doe", "Jane Smith"]
 
 [extra]
 audio_file = "audio/episode-002.mp3"
-audio_length = "18567890"
+audio_length = "72534"
 audio_type = "audio/mpeg"
-duration = "45:15"
+duration = "00:18"
 episode_number = 2
 season = 1
 episode_type = "full"

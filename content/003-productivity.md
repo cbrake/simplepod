@@ -9,9 +9,9 @@ authors = ["Jane Smith"]
 
 [extra]
 audio_file = "audio/episode-003.mp3"
-audio_length = "15432100"
+audio_length = "96462"
 audio_type = "audio/mpeg"
-duration = "35:45"
+duration = "00:24"
 episode_number = 3
 season = 1
 episode_type = "full"
