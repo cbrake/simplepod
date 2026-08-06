@@ -225,6 +225,25 @@ Run `zola serve` from the root of this repository to preview the theme against
 the demo content. `envsetup.sh` defines `sp_format`, which runs Prettier over
 the markdown and CSS files.
 
+## Releases
+
+Versions follow [Semantic Versioning](https://semver.org/), and
+[CHANGELOG.md](CHANGELOG.md) records what changed in each one. The version
+describes the upgrade: a major release means editing `config.toml`, the episode
+front matter, or a template you have overridden, while a minor or patch release
+does not.
+
+Installing the theme as a submodule pins it to whatever commit you added, so
+upgrading is deliberate:
+
+```bash
+cd themes/simplepod
+git fetch --tags
+git checkout v0.1.0
+cd ../..
+git add themes/simplepod
+```
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

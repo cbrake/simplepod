@@ -1,0 +1,54 @@
+name: release
+
+# A theme has no build artifact to ship: a site installs it from git. A release
+# is therefore the tag plus the notes for it. Pushing a "v*" tag builds the demo
+# site to confirm the templates still render, then publishes a GitHub release
+# whose body is that version's CHANGELOG.md section.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  ZOLA_VERSION: "0.22.1"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the theme
+        uses: actions/checkout@v4
+
+      - name: Install Zola
+        run: |
+          curl -sSL "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz -C /usr/local/bin zola
+
+      # The demo site lives at the repository root, so this builds the theme
+      # against its own content. A tag that does not render is not a release.
+      - name: Build the demo site
+        run: zola build --base-url "https://example.com"
+
+      - name: Extract the release notes
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          ./scripts/extract-changelog.sh "$TAG" > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "CHANGELOG.md has no section for $TAG" >&2
+            exit 1
+          fi
+          cat release-notes.md
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes-file release-notes.md \
+            --verify-tag

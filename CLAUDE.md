@@ -82,6 +82,22 @@ iTunes-compatible feed at `/rss.xml` with:
   styles)
 - Images: Logo and other assets in `static/`
 
+## Conventions
+
+- Record user-visible changes in `CHANGELOG.md` under `[unreleased]`, using the
+  Keep a Changelog headings (Added, Changed, Deprecated, Removed, Fixed,
+  Security).
+- Version by what a site owner has to do to upgrade. A major release means
+  editing `config.toml`, the episode front matter, or an overridden template. A
+  minor release adds something a site can choose to use. A patch release changes
+  only what the templates render.
+- To cut a release, rename `[unreleased]` to `[vX.Y.Z] - <date>` and push the
+  matching tag. `.github/workflows/release.yml` builds the demo site and then
+  publishes a GitHub release whose body comes from that section by way of
+  `scripts/extract-changelog.sh`.
+- Keep `min_version` in `theme.toml` equal to the oldest Zola the templates
+  actually run on, and say the same thing in the README.
+
 ## Development Notes
 
 ### Adding New Features
