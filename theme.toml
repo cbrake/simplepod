@@ -4,13 +4,10 @@ tags = ["podcast", "rss", "audio", "search", "responsive", "minimal"]
 license = "MIT"
 homepage = "https://github.com/cbrake/simplepod"
 # The minimum version of Zola required
-min_version = "0.19.0"
+min_version = "0.20.0"
 # An optional live demo URL
 demo = "https://cbrake.github.io/simplepod/"
 
 [author]
 name = "Cliff Brake"
 homepage = "https://github.com/cbrake"
-
-[extra]
-simplepod_version = "1.0.0"
