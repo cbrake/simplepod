@@ -17,7 +17,8 @@ SimplePod is a Zola theme for podcasts. It has the following features:
 
 ## Requirements
 
-Zola 0.19.0 or later.
+Zola 0.20.0 or later. Episode navigation uses `page.lower` and `page.higher`,
+which replaced `page.earlier` and `page.later` in Zola 0.20.
 
 ## Installation
 

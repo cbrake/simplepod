@@ -82,13 +82,15 @@
     </div>
     {% endif %}
     
+    {# In a date-sorted section Zola lists newest first, so the page higher in
+       that order is the older episode and the lower one is the newer episode. #}
     <nav class="episode-navigation">
-        {% if page.earlier %}
-        <a href="{{ page.earlier.permalink }}">← Previous: {{ page.earlier.title }}</a>
+        {% if page.higher %}
+        <a href="{{ page.higher.permalink }}">← Previous: {{ page.higher.title }}</a>
         {% endif %}
         
-        {% if page.later %}
-        <a href="{{ page.later.permalink }}">Next: {{ page.later.title }} →</a>
+        {% if page.lower %}
+        <a href="{{ page.lower.permalink }}">Next: {{ page.lower.title }} →</a>
         {% endif %}
     </nav>
 </article>
