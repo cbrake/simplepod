@@ -14,6 +14,8 @@ only what the templates render.
 
 ## [unreleased]
 
+## [v0.1.0] - 2026-08-06
+
 The first tagged release. Sites installed before now track `main` directly and
 can move to the tag without changing their configuration.
 
