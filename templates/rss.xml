@@ -6,8 +6,11 @@
     <channel>
         <title>{{ config.title }}</title>
         <link>{{ config.base_url }}</link>
-        <atom:link href="{{ get_url(path="rss.xml") }}" rel="self" type="application/rss+xml"/>
-        <description>{{ config.description }}</description>
+        {# feed_path lets a wrapper template render this feed at another location,
+           such as a path inherited from a previous site generator, and still have
+           the self link point at itself. #}
+        <atom:link href="{{ get_url(path=feed_path | default(value="rss.xml")) }}" rel="self" type="application/rss+xml"/>
+        <description>{{ config.extra.feed_description | default(value=config.description) }}</description>
         <language>{{ config.extra.language | default(value="en-us") }}</language>
         <copyright>{% if config.extra.copyright %}{{ config.extra.copyright }}{% else %}© {{ now() | date(format="%Y") }} {{ config.title }}{% endif %}</copyright>
         <lastBuildDate>{{ now() | date(format="%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
@@ -15,6 +18,10 @@
         
         {% if config.extra.itunes_author %}
         <itunes:author>{{ config.extra.itunes_author }}</itunes:author>
+        {% endif %}
+        
+        {% if config.extra.itunes_subtitle %}
+        <itunes:subtitle>{{ config.extra.itunes_subtitle }}</itunes:subtitle>
         {% endif %}
         
         {% if config.extra.itunes_summary %}
@@ -62,11 +69,19 @@
         <item>
             <title>{{ episode.title }}</title>
             <link>{{ episode.permalink }}</link>
+            {# A feed moved from another generator keeps whatever guid its episodes were
+               first published with, since podcast clients use the guid to decide
+               what a subscriber already has. New episodes fall back to the
+               permalink. #}
+            {% if episode.extra.guid %}
+            <guid>{{ episode.extra.guid }}</guid>
+            {% else %}
             <guid isPermaLink="true">{{ episode.permalink }}</guid>
+            {% endif %}
             <pubDate>{{ episode.date | date(format="%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
             
             {% if episode.description %}
-            <description><![CDATA[{{ episode.description }}]]></description>
+            <description><![CDATA[{{ episode.description | safe }}]]></description>
             {% endif %}
             
             {% if episode.content %}

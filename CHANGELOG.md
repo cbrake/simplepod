@@ -14,6 +14,26 @@ only what the templates render.
 
 ## [unreleased]
 
+### Added
+
+- `extra.guid` on an episode, which sets the item's `<guid>`. A podcast moved
+  from another site generator keeps the identifiers its episodes were first
+  published with, so subscribers' clients do not treat the back catalogue as new
+  downloads. Episodes without it keep using the permalink.
+- `extra.feed_description`, which sets the feed's channel `<description>`
+  independently of `config.description`. Sites whose show blurb differs from
+  their meta description no longer have to choose between them.
+- `extra.itunes_subtitle`, which publishes a channel-level `<itunes:subtitle>`.
+- A `feed_path` variable that a wrapper template can set before including
+  `rss.xml`, so a feed rendered at another location points its `atom:link` at
+  itself. This lets a site publish the feed at a path inherited from a previous
+  generator.
+
+### Fixed
+
+- Episode descriptions were escaped inside the `<description>` CDATA block, so
+  an apostrophe reached podcast clients as `&#x27;` rather than as itself.
+
 ## [v0.1.0] - 2026-08-06
 
 The first tagged release. Sites installed before now track `main` directly and

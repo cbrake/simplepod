@@ -101,6 +101,9 @@ The rest of the configuration goes in the `[extra]` section.
   true)
 - `podcast_description` - Long description of your podcast for the homepage
 - `podcast_logo` - Path to podcast logo image (e.g., "/podcast-logo.svg")
+- `feed_description` - Channel `<description>` for the RSS feed. Defaults to the
+  site's `description`. Set this when the show blurb podcast apps display should
+  differ from the site's meta description.
 - `media_prefix` - URL prefix for audio files. By default, files are assumed to
   be in the `static/audio` directory if this is not set. The URL in the rss feed
   is a complete URL as required by podcast engines.
@@ -110,6 +113,7 @@ The rest of the configuration goes in the `[extra]` section.
 ### iTunes/Apple Podcasts Settings
 
 - `itunes_author` - Podcast author name
+- `itunes_subtitle` - One-line subtitle for the show
 - `itunes_summary` - Brief podcast summary for iTunes
 - `itunes_owner_name` - Podcast owner's name
 - `itunes_owner_email` - Podcast owner's email
@@ -161,6 +165,7 @@ itunes_summary = "A longer summary."  # Optional, falls back to description
 itunes_explicit = "false"             # Optional, falls back to the site value
 itunes_image = "https://..."          # Optional, falls back to the site value
 transcript = "transcripts/001.txt"    # Optional, adds a download link
+guid = "https://example.com/001.mp3"  # Optional, see below
 show_notes = """
 ## Links mentioned
 
@@ -171,6 +176,21 @@ show_notes = """
 
 `audio_length` is the size of the audio file in bytes. Podcast clients use it
 for download progress, so it is worth setting.
+
+`guid` is the identifier podcast clients use to tell episodes apart, and it
+defaults to the episode's permalink. Set it only when moving a published podcast
+onto this theme: give each episode the guid its old feed used, or subscribers'
+clients will treat the whole back catalogue as new episodes and download it
+again. Once an episode is published, its guid must never change.
+
+To publish the feed at a path other than `/rss.xml`, which a move from another
+generator may require, add the path to `feed_filenames` and create a wrapper
+template of the same name:
+
+```jinja
+{%- set feed_path = "episode/index.xml" -%}
+{%- include "rss.xml" -%}
+```
 
 ## Search
 
