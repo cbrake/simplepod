@@ -14,6 +14,8 @@ only what the templates render.
 
 ## [unreleased]
 
+## [v0.3.0] - 2026-08-11
+
 ### Fixed
 
 - The navigation link check used a named test argument, which only Zola 0.23
