@@ -14,6 +14,8 @@ only what the templates render.
 
 ## [unreleased]
 
+## [v0.2.0] - 2026-08-11
+
 ### Added
 
 - `extra.guid` on an episode, which sets the item's `<guid>`. A podcast moved
