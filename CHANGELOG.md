@@ -14,6 +14,13 @@ only what the templates render.
 
 ## [unreleased]
 
+### Fixed
+
+- The navigation link check used a named test argument, which only Zola 0.23
+  accepts, so the site no longer built on the 0.20 through 0.22 releases the
+  theme supports. The check now tests the link for `://`, which every supported
+  Zola version parses the same way.
+
 ## [v0.2.0] - 2026-08-11
 
 ### Added
