@@ -15,6 +15,9 @@ SimplePod is a Zola theme for podcasts. It has the following features:
 
 [Live demo](https://cbrake.github.io/simplepod/)
 
+The [TMPDIR Podcast](https://tmpdir.org/) (53 episodes) is published using Zola
+and this theme.
+
 ## Requirements
 
 Zola 0.20.0 or later. Episode navigation uses `page.lower` and `page.higher`,
