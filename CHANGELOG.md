@@ -33,6 +33,9 @@ only what the templates render.
 
 - Episode descriptions were escaped inside the `<description>` CDATA block, so
   an apostrophe reached podcast clients as `&#x27;` rather than as itself.
+- The navigation link template passed the `starting_with` test a positional
+  argument, which Zola 0.23 rejects at parse time, so no page rendered. The
+  argument is now named.
 
 ## [v0.1.0] - 2026-08-06
 

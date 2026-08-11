@@ -39,7 +39,7 @@
                 {# Route internal links through get_url so the nav keeps working
                    when the site is served from a subdirectory. External links
                    are emitted as-is. #}
-                <li><a href="{% if link.url is starting_with("http") %}{{ link.url }}{% else %}{{ get_url(path=link.url) }}{% endif %}">{{ link.name }}</a></li>
+                <li><a href="{% if link.url is starting_with(pat="http") %}{{ link.url }}{% else %}{{ get_url(path=link.url) }}{% endif %}">{{ link.name }}</a></li>
                 {% endfor %}
             {% endif %}
         </ul>
