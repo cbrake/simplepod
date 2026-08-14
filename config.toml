@@ -40,6 +40,11 @@ itunes_subcategory = "Tech News"
 itunes_explicit = "false"
 itunes_type = "episodic"
 
+# Adding newsletter_form_action renders an email signup form in the footer.
+# newsletter_form_action = "https://app.kit.com/forms/1234567/subscriptions"
+# newsletter_title = "Subscribe to the newsletter"
+# newsletter_description = "New episodes and show notes, straight to your inbox."
+
 itunes_url = "https://podcasts.apple.com/us/podcast/my-podcast"
 spotify_url = "https://open.spotify.com/show/your-spotify-id"
 

@@ -132,6 +132,21 @@ The rest of the configuration goes in the `[extra]` section.
 - `call_to_action` - Text that can optionally be displayed at the top of each
   page, typically one line.
 
+### Newsletter Signup
+
+Setting `newsletter_form_action` adds an email signup form to the footer of
+every page, and a second copy on the home page below the hero. The form posts an
+`email_address` field, which matches what hosted newsletter services such as
+Kit, Buttondown, and Mailchimp expect, so the value is the POST endpoint given
+by your provider. Leave the key out and the form is not rendered.
+
+- `newsletter_form_action` - POST endpoint for the signup form, for example
+  `https://app.kit.com/forms/1234567/subscriptions`
+- `newsletter_title` - Heading above the form (optional, defaults to "Subscribe
+  to the newsletter")
+- `newsletter_description` - A sentence describing what subscribers receive
+  (optional)
+
 ### Analytics
 
 - `fathom_site_id` - Fathom Analytics site ID (optional). If set, includes

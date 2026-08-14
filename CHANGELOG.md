@@ -14,6 +14,15 @@ only what the templates render.
 
 ## [unreleased]
 
+### Added
+
+- `extra.newsletter_form_action`, which renders an email signup form that posts
+  to a hosted newsletter service. The form appears in the footer of every page
+  and again on the home page below the hero, where it reaches readers who are
+  deciding whether to follow the show. `extra.newsletter_title` and
+  `extra.newsletter_description` adjust the wording around it. Sites that leave
+  these unset render the footer exactly as before.
+
 ## [v0.2.0] - 2026-08-11
 
 ### Added

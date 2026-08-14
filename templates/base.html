@@ -56,6 +56,9 @@
     </main>
     
     <footer class="container">
+        {% set newsletter_modifier = "" %}
+        {% include "newsletter.html" %}
+
         {% if config.extra.show_copyright %}
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}. All rights reserved.</p>
         {% endif %}

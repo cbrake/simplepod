@@ -1,0 +1,26 @@
+{# Email signup form, rendered only when a POST endpoint is configured.
+
+   Included by base.html (footer) and index.html (below the hero). Set
+   `newsletter_modifier` before including to add a modifier class, and set it
+   back to "" afterwards, since the value carries into later includes. #}
+{% if config.extra.newsletter_form_action %}
+<section class="newsletter-signup {{ newsletter_modifier | default(value="") }}">
+    <h3>{{ config.extra.newsletter_title | default(value="Subscribe to the newsletter") }}</h3>
+    {% if config.extra.newsletter_description %}
+    <p>{{ config.extra.newsletter_description }}</p>
+    {% endif %}
+    <form
+        action="{{ config.extra.newsletter_form_action }}"
+        method="post"
+        target="_blank"
+        class="newsletter-form">
+        <input
+            type="email"
+            name="email_address"
+            placeholder="you@example.com"
+            aria-label="Email address"
+            required>
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+{% endif %}

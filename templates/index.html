@@ -16,7 +16,10 @@
     </div>
     {% endif %}
     {% endif %}
-    
+
+    {% set newsletter_modifier = "newsletter-signup--hero" %}
+    {% include "newsletter.html" %}
+
     {% if section.pages %}
     <div class="episodes-list">
         {% for episode in section.pages %}

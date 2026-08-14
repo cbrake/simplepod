@@ -247,6 +247,56 @@ footer p {
 	margin: 0.5rem 0;
 }
 
+/* Newsletter signup */
+.newsletter-signup {
+	max-width: 32rem;
+	margin: 0 auto 2rem;
+}
+
+.newsletter-signup h3 {
+	margin: 0 0 0.25rem;
+	font-size: 1.1rem;
+}
+
+.newsletter-signup p {
+	margin: 0 0 0.85rem;
+	color: var(--pico-muted-color);
+	font-size: 0.95rem;
+}
+
+.newsletter-form {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+.newsletter-form input[type="email"] {
+	flex: 1 1 14rem;
+	min-width: 0;
+	margin: 0;
+}
+
+.newsletter-form button {
+	width: auto;
+	flex-shrink: 0;
+	margin: 0;
+}
+
+/* Hero variant: a boxed prompt directly under the show description */
+.newsletter-signup--hero {
+	margin: 0 auto 3rem;
+	padding: 1.25rem 1.5rem;
+	border: 1px solid var(--pico-muted-border-color);
+	border-radius: var(--pico-border-radius);
+	background: var(--pico-card-background-color);
+	text-align: center;
+}
+
+.newsletter-signup--hero .newsletter-form {
+	justify-content: center;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
 	.episode-meta {
